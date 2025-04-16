@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/images/logo_a-03-removebg-preview.png">
 </head>
 
 <body>
@@ -35,7 +36,7 @@
             </nav>
 
             <box-icon class="menu-icon" name='menu' size="md" color="#19c1b6"></box-icon>
-            <button>Тіркелу</button>
+            <button class="sign-up-btn">Тіркелу</button>
         </div>
     </header>
     <section class="first__section">
@@ -54,7 +55,7 @@
             <p>Жалпы білім беру мектебі</p>
             <h1>Amjilt Cyber School</h1>
             <span>2025-2026 оқу жылына қабылдау ашық!</span>
-            <button>Тіркелу</button>
+            <button class="sign-up-btn">Тіркелу</button>
         </div>
 
         <img class="board__img" src="./images/Group 274.png" alt="">
@@ -128,7 +129,7 @@
                         етеді.</p>
                 </div>
                 <div class=" amenity">
-                    <img src="./images/photo_2025-03-18 15.53.10.jpeg" alt="">
+                    <img src="./images/IMG_1365.PNG" alt="">
                     <h2>IT лаборатория</h2>
                     <hr>
                     <p>Оқушыларға шығармашылықпен жұмыс істеп, заманауи IT шешімдерді қолдана отырып, инновациялық
@@ -136,14 +137,14 @@
                         іске асыруға мүмкіндік береді.</p>
                 </div>
                 <div class=" amenity">
-                    <img src="./images/photo_2025-03-18 15.53.10.jpeg" alt="">
+                    <img src="./images/010.jpg" alt="">
                     <h2>Асхана</h2>
                     <hr>
                     <p> Заңды стандарттарға сай, дәмді және сапалы тағамдар ұсынылатын жайлы кеңістік. Мұнда балаларға
                         энергия беретін, теңдестірілген тағамдар әзірленеді. </p>
                 </div>
                 <div class=" amenity">
-                    <img src="./images/photo_2025-03-18 15.53.10.jpeg" alt="">
+                    <img src="./images/MVI_0178 - frame at 0m0s.jpg" alt="">
                     <h2>Таэквондо залы</h2>
                     <hr>
                     <p> Денсаулықты нығайтып, тәртіп пен ерік-жігерді дамытуға арналған заманауи алаңда оқушылар
@@ -151,7 +152,7 @@
                         күштерін шынықтырып, өзін-өзі қорғау дағдыларын игереді.</p>
                 </div>
                 <div class=" amenity">
-                    <img src="./images/photo_2025-03-18 15.53.10.jpeg" alt="">
+                    <img src="./images/13.jpg" alt="">
                     <h2>Өнер студиясы</h2>
                     <hr>
                     <p> Шығармашылық әлеуетті ашатын ортада оқушылар сурет салу, ән айту және т.б. өнер салаларында
@@ -333,26 +334,54 @@
 
     </section>
     <section class="sixth__section" id="payment">
-        <img src="./images/Group 97.png" alt="">
-        <div class="payment">
-            <h1>Оқу ақысы</h1>
-            <em><span>2 800 000</span> ₸ / оқу жылы</em>
-            <ul>
-                <h2>Оқу ақысына кіреді: </h2>
-                <li>✅ Барлық негізгі және қосымша сабақтар</li>
-                <li>✅ Оқу материалдары мен құрал-жабдықтар</li>
-                <li>✅ Үйірмелер мен клубтар</li>
-                <li>✅ IT лабораторияларын пайдалану</li>
-            </ul>
+        <h1>Оқу төлемі</h1>
+        <div class="payment-options">
+            <div class="payment">
+                <div class="payment__head">
+                    <h1>Негізгі пакет</h1>
+                    <em><span>2 800 000</span> ₸ / оқу жылы</em>
+                </div>
 
-            <ul>
-                <h2>Ерте тіркелу артықшылықтары: </h2>
-                <li> ⭐︎30%- ға дейін жеңілдік</li>
-                <li> ⭐︎Тегін диагностика</li>
-                <li> ⭐︎Жеке даму жоспары</li>
-                <li> ⭐︎Тегін тасымалдау және тамақтану (бір тоқсан)</li>
-            </ul>
+                <ul>
+                    <h2>Оқу ақысына кіреді: </h2>
+                    <li>✅ Барлық негізгі және қосымша сабақтар</li>
+                    <li>✅ Үйірмелер мен клубтар</li>
+                    <li>✅ IT лабораторияларын пайдалану</li>
+                    <li>✅ Халықаралық емтихандарға дайындық</li>
+                    <li>✅ Мектеп формасы</li>
+                </ul>
+
+                <ul>
+                    <h2>Ерте тіркелу артықшылықтары: </h2>
+                    <li> ⭐︎10%- ға дейін жеңілдік</li>
+                    <li> ⭐︎Тегін диагностикалық тест</li>
+                    <li> ⭐︎Жеке даму жоспары</li>
+                </ul>
+            </div>
+            <div class="payment">
+                <div class="payment__head">
+                    <h1>Толық пакет</h1>
+                    <em><span>3 200 000</span> ₸ / оқу жылы</em>
+                </div>
+                <ul>
+                    <h2>Оқу ақысына кіреді: </h2>
+                    <li>✅ Барлық негізгі және қосымша сабақтар</li>
+                    <li>✅ Үйірмелер мен клубтар</li>
+                    <li>✅ IT лабораторияларын пайдалану</li>
+                    <li>✅ Халықаралық емтихандарға дайындық</li>
+                    <li>✅ Мектеп формасы</li>
+                    <li>✅ Жыл бойы тамақтану және тасымалдау</li>
+                </ul>
+
+                <ul>
+                    <h2>Ерте тіркелу артықшылықтары: </h2>
+                    <li> ⭐︎10%- ға дейін жеңілдік</li>
+                    <li> ⭐︎Тегін диагностикалық тест</li>
+                    <li> ⭐︎Жеке даму жоспары</li>
+                </ul>
+            </div>
         </div>
+
 
 
     </section>
@@ -360,7 +389,8 @@
         <section class="seventh__section">
             <div class="bg">
                 <h1>Тегін консультацияға жазылыңыз!</h1>
-                <form class="data__form" method="POST" action="https://script.google.com/macros/s/AKfycby7INQpDIrth4J4cj0mn7PjMsrQerTJ0foyDzGsI1eoE5K6yqNdgWAwgCkul_qmnAbx/exec">
+                <form class="data__form" method="POST"
+                    action="https://script.google.com/macros/s/AKfycby7INQpDIrth4J4cj0mn7PjMsrQerTJ0foyDzGsI1eoE5K6yqNdgWAwgCkul_qmnAbx/exec">
                     <input type="text" name="name" id="name" placeholder="Аты-жөніңіз">
                     <input type="tel" name="phonenumber" id="phonenumber" placeholder="Телефон нөміріңіз">
                     <button type="submit">Жіберу</button>
@@ -373,24 +403,43 @@
         <div class="footer__content">
             <img src="./images//output-onlinepngtools (1).png" alt="">
             <div>
-                 <div class="contacts">
-                 <a href="tel:+77477106060">+7 (747) 710 6060</a>
-                <a href="https://www.instagram.com/amjilt.cyber.school/"> <box-icon name='instagram-alt' type='logo' color="#19c1b6" size="md"></box-icon></a>
-               <a href="https://api.whatsapp.com/send?phone=77477106060"> <box-icon name='whatsapp' type='logo' color="#19c1b6" size="md"></box-icon></a>
+                <div class="contacts">
+                    <a href="tel:+77477106060">+7 (747) 710 6060</a>
+                    <a href="https://www.instagram.com/amjilt.cyber.school/"> <box-icon name='instagram-alt' type='logo'
+                            color="#19c1b6" size="md"></box-icon></a>
+                    <a href="https://api.whatsapp.com/send?phone=77477106060"> <box-icon name='whatsapp' type='logo'
+                            color="#19c1b6" size="md"></box-icon></a>
+                </div>
+                <a href="https://go.2gis.com/BwpIn">Алматы қ., Мәуленов к. 92</a>
             </div>
-            <a href="https://go.2gis.com/BwpIn">Алматы қ., Мәуленов к. 92</a>
-            </div>
-           
+
         </div>
         <div class="wavy-line"></div>
     </footer>
+
+    <div id="myModal" class="modal">
+
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-main-content">
+                <h1>Тегін консультацияға жазылыңыз!</h1>
+                <form class="data__form" method="POST"
+                    action="https://script.google.com/macros/s/AKfycby7INQpDIrth4J4cj0mn7PjMsrQerTJ0foyDzGsI1eoE5K6yqNdgWAwgCkul_qmnAbx/exec">
+                    <input type="text" name="name" id="name" placeholder="Аты-жөніңіз">
+                    <input type="tel" name="phonenumber" id="phonenumber" placeholder="Телефон нөміріңіз">
+                    <button type="submit">Жіберу</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="./script.js"></script>
 </body>
 

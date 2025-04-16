@@ -42,18 +42,62 @@
 
 
   window.addEventListener("load", function() {
-    const form = document.querySelector('.data__form');
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-      const data = new FormData(form);
-      const action = e.target.action;
-      fetch(action, {
-        method: 'POST',
-        body: data,
-      })
-      .then(() => {
-        alert("Өтініш қабылданды, жақында хабарласамыз!");
-        form.reset();
-      })
+    const forms = document.querySelectorAll('.data__form');
+    forms.forEach(form => {
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const data = new FormData(form);
+        const action = e.target.action;
+        fetch(action, {
+          method: 'POST',
+          body: data,
+        })
+        .then(() => {
+          alert("Өтініш қабылданды, жақында хабарласамыз!");
+          if (modal.style.display == "block") {
+            closeModal();
+          }
+          form.reset();
+        });
+      });
     });
   });
+  
+
+  var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btns = document.querySelectorAll(".sign-up-btn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btns.forEach(btn => (
+  btn.onclick = function() {
+  openModal();
+}
+))
+
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  closeModal();
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    closeModal();
+  }
+}
+
+function closeModal() {
+  modal.style.display = "none";
+  modal.classList.remove("requires-no-scroll");
+}
+
+function openModal() {
+  modal.style.display = "block";
+  modal.classList.add("requires-no-scroll");
+}

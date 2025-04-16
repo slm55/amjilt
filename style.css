@@ -301,7 +301,9 @@ nav.mobile ul {
 }
 .amenity img {
   width: 150px;
+  height: 150px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .fourth__section {
@@ -559,25 +561,61 @@ nav.mobile ul {
 .sixth__section {
   min-height: 100vh;
   padding: 60px 100px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
 }
 
-.sixth__section img {
-  width: 40%;
+.sixth__section h1 {
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.payment-options {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 30px;
 }
 
 .payment{
    display: flex;
    flex-direction: column;
-   justify-content: space-evenly;
+   justify-content: space-between;
    align-items: start;
    color: black;
    gap: 20px;
-   border: 1px dashed var(--primary-blue);
-   padding: 20px 30px;
+   border: 1px solid var(--primary-blue);
    border-radius: 20px;
+   overflow: hidden;
+}
+
+.payment:nth-child(1) {
+  border-color: #19c1b6;
+}
+
+.payment:nth-child(2) {
+  border-color: #fbab48;
+}
+
+.payment ul {
+  padding: 10px 20px;
+}
+
+
+.payment__head {
+  width: 100%;
+  padding: 30px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  color: white;
+  text-align: center;
+}
+.payment:nth-child(1) .payment__head {
+  background-color:rgba(25, 193, 182, 0.90);
+
+}
+.payment:nth-child(2) .payment__head {
+  background-color:rgba(251, 171, 72, 0.90);
 }
 
 .payment h1 {
@@ -589,12 +627,12 @@ nav.mobile ul {
 
 .payment em {
   font-size: 25px;
-  color: var(--primary-blue);
+  color: var(--dark-text);
 }
 
 .payment em span {
   font-size: 40px;
-  color: var(--secondary-orange);
+  color: var(--complimentary-pink);
 }
 
 .payment ul  {
@@ -703,6 +741,102 @@ footer img {
 footer .wavy-line {
   bottom: 20px;
 z-index: 2;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: absolute; /* Stay in place */
+  z-index: 100; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100vw; /* Full width */
+  min-height: 100vh; /* Full height */
+  overflow:hidden; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+body:has(.requires-no-scroll) {
+  overflow: hidden;
+}
+
+/* Modal Content */
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fefefe;
+  margin: auto;
+  padding: 40px;
+  border: 1px solid #888;
+  width: 50%;
+  background-color: var(--primary-blue);
+  transition: display 1s;
+}
+
+.modal-main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  color: white;
+}
+
+.modal-main-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-main-content h1 {
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.modal-main-content input {
+  background-color: white;
+  height: 40px;
+  width: 300px;
+  color: black;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.modal-main-content button {
+  color: white;
+  font-weight: 600;
+  background-color: var(--secondary-orange);
+  width:fit-content;
+  padding: 5px 25px;
+  border-radius: 10px;
+  border: none;
+  align-self: center;
+}
+
+form input {
+  outline: none;
+}
+
+form button {
+  cursor: pointer;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: var(--secondary-orange);
+  text-decoration: none;
+  cursor: pointer;
 }
 
 @media (max-width: 500px) {
@@ -986,6 +1120,10 @@ z-index: 2;
   font-size: 32px;
 }
 
+.payment-options {
+  flex-direction: column;
+}
+
 .payment em span {
   font-size: 32px;
 }
@@ -1041,4 +1179,24 @@ footer {
   flex-direction: column-reverse;
   height: 100%;
 }
+
+.modal-content {
+  width: 90%;
+  padding: 20px;
+}
+
+.modal-content h1 {
+  font-size: 26px;
+  text-align: center;
+}
+
+.modal-content form {
+  width: 100%;
+}
+
+.modal-content form input {
+  width: 100%;
+}
+
+
 }
