@@ -48,12 +48,17 @@
         e.preventDefault();
         const data = new FormData(form);
         const action = e.target.action;
+        const btn = e.target.querySelector("button");
+        btn.disabled = true;
+        btn.textContent = "Жіберілуде...";
         fetch(action, {
           method: 'POST',
           body: data,
         })
         .then(() => {
           alert("Өтініш қабылданды, жақында хабарласамыз!");
+          btn.textContent = "Жіберу";
+          btn.disabled = false;
           if (modal.style.display == "block") {
             closeModal();
           }
@@ -98,6 +103,11 @@ function closeModal() {
 }
 
 function openModal() {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  });
   modal.style.display = "block";
   modal.classList.add("requires-no-scroll");
 }
