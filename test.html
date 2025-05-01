@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Amjilt Olympiad - Online Round</h1>
+    <script>
+        document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    console.log('User switched tabs or minimized');
+    // You can trigger a warning, log it, or auto-submit the exam
+  } else {
+    console.log('User is back');
+  }
+});
+
+document.addEventListener('copy', (e) => e.preventDefault());
+document.addEventListener('cut', (e) => e.preventDefault());
+document.addEventListener('paste', (e) => e.preventDefault());
+document.addEventListener('contextmenu', (e) => e.preventDefault());
+document.addEventListener('selectstart', (e) => e.preventDefault());
+
+
+
+    </script>
+</body>
+</html>
