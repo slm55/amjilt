@@ -1,156 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TechMind 2025 Olympiad</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-    </style>
-  </head>
-  <body class="bg-[#1F2229] text-white font-sans">
-    <header class="bg-[#1F2229] p-4">
-        <div class="max-w-6xl mx-auto flex items-center">
-          <img src="./images/output-onlinepngtools (3).png" alt="Amjilt Cyber School Logo" class="h-12 w-auto mr-4" />
-          <span class="text-white text-xl font-bold">Amjilt Cyber School</span>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechMind 2025 Olympiad</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body class="bg-[#1F2229] text-white font-sans">
+  <header class="bg-[#1F2229] p-4">
+    <div class="max-w-6xl mx-auto flex items-center">
+      <img src="./images/output-onlinepngtools (3).png" alt="Amjilt Cyber School Logo" class="h-12 w-auto mr-4" />
+      <span class="text-white text-xl font-bold">Amjilt Cyber School</span>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-[#00DF82] text-[#1F2229] p-10">
+    <div class="max-w-5xl mx-auto text-center">
+      <!-- Optional Logo -->
+
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">TechMind 2025 Олимпиадасы</h1>
+      <p class="text-lg md:text-xl mb-6">
+        by <span class="font-bold text-[#0033FF]">Amjilt Cyber School</span>
+      </p>
+      <p class="mb-8 max-w-3xl mx-auto text-md">
+        Технологиядағы ең жарқын ойларды ашуға арналған жалпыұлттық сынақ! 7-9 сыныптар үшін ашық. Үздіктермен
+        бәсекелесіп, шеберліктеріңізді шыңдаңыз және қызықты сыйлықтар ұтып алыңыз.
+      </p>
+      <a href="#application"
+        class="bg-[#0033FF] text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition">
+        Тіркелу
+      </a>
+    </div>
+  </section>
+
+  <!-- Info Section -->
+  <section class="p-10 max-w-4xl mx-auto space-y-10">
+    <div>
+      <h2 class="text-2xl font-bold text-[#00DF82] mb-3">📌 Жалпы ақпарат</h2>
+      <p>
+        Олимпиада логика, информатика және инновация бойынша оффлайн форматта өтеді.
+        <br>— Логикалық жұмбақтар
+        <br>— Математикалық ойлауыға арналған тапсырмалар
+        <br>— Техникалық креативтілік
+        <br> Кодтауды білу міндетті емес!
+      </p>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-bold text-[#00DF82] mb-3">📄 Шарттар </h2>
+      <ul class="list-disc list-inside space-y-2">
+        <li>Тек қана 7, 8, және 9 сынып оқушылары қатыса алады.</li>
+        <li>Қатысушы Алматы қаласынан болуы тиіс.</li>
+        <li>Олимпиадаға алдын-ала тіркелу міндетті және толық мәлімет толтырылуы керек.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-bold text-[#00DF82] mb-3">🎁 Сыйлықтар</h2>
+      <p>
+        Жеңімпаздар техникалық гаджеттер, велосипед, самокат, сертификаттар және 2025-2026 оқу жылына Amjilt Cyber
+        School-де оқуға гранттар алады.
+      </p>
+    </div>
+  </section>
+
+  <!-- Application Form -->
+  <section id="application" class="bg-[#0033FF] py-14 px-6">
+    <div class="max-w-xl mx-auto bg-white text-[#1F2229] rounded-2xl shadow-lg p-8">
+      <h2 class="text-3xl font-bold text-center text-[#00DF82] mb-6">Қатысу формасы</h2>
+      <form id="olympiadForm" class="space-y-5"
+        action="https://script.google.com/macros/s/AKfycbyFDKh4efdy6aai62xVTICQsBUOviBFv5gsJSKn4_FDUAAMxKkG2-lco6TgFTNHTuWWgQ/exec"
+        method="POST">
+        <div>
+          <label for="fullname" class="block font-medium">Қатысушының толық аты-жөні</label>
+          <input type="text" id="fullname" name="fullname" required
+            class="w-full mt-1 p-2 border border-gray-300 rounded-lg" />
         </div>
-      </header>
-
-    <!-- Hero Section -->
-    <section class="bg-[#00DF82] text-[#1F2229] p-10">
-      <div class="max-w-5xl mx-auto text-center">
-        <!-- Optional Logo -->
-
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">TechMind 2025 Олимпиадасы</h1>
-        <p class="text-lg md:text-xl mb-6">
-          by <span class="font-bold text-[#0033FF]">Amjilt Cyber School</span>
-        </p>
-        <p class="mb-8 max-w-3xl mx-auto text-md">
-            Технологиядағы ең жарқын ойларды ашуға арналған жалпыұлттық сынақ! 7-9 сыныптар үшін ашық. Үздіктермен бәсекелесіп, шеберліктеріңізді шыңдаңыз және қызықты сыйлықтар ұтып алыңыз.
-        </p>
-        <a href="#application" class="bg-[#0033FF] text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition">
+        <div>
+          <label for="grade" class="block font-medium">Сыныбы</label>
+          <select id="grade" name="grade" required class="w-full mt-1 p-2 border border-gray-300 rounded-lg">
+            <option value="" disabled selected>Сыныпты таңдаңыз</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+          </select>
+        </div>
+        <div>
+          <label for="parentname" class="block font-medium">Ата-ананың аты-жөні</label>
+          <input type="text" id="parentname" name="parentname" required
+            class="w-full mt-1 p-2 border border-gray-300 rounded-lg" />
+        </div>
+        <div>
+          <label for="phone" class="block font-medium">Ата-ананың байланыс нөмірі</label>
+          <input type="tel" id="phone" name="phone" required pattern="[0-9+ ]{10,15}"
+            class="w-full mt-1 p-2 border border-gray-300 rounded-lg" />
+        </div>
+        <button type="submit"
+          class="w-full bg-[#00DF82] text-[#1F2229] font-bold py-2 px-4 rounded-lg hover:bg-green-500 transition">
           Тіркелу
-        </a>
-      </div>
-    </section>
-
-    <!-- Info Section -->
-    <section class="p-10 max-w-4xl mx-auto space-y-10">
-      <div>
-        <h2 class="text-2xl font-bold text-[#00DF82] mb-3">📌 Жалпы ақпарат</h2>
-        <p>
-            Олимпиада логика, информатика және инновация бойынша оффлайн форматта өтеді.
-            <br>— Логикалық жұмбақтар
-            <br>— Математикалық ойлауыға арналған тапсырмалар
-            <br>— Техникалық креативтілік
-           <br> Кодтауды білу міндетті емес!
-        </p>
-      </div>
-
-      <div>
-        <h2 class="text-2xl font-bold text-[#00DF82] mb-3">📄 Шарттар </h2>
-        <ul class="list-disc list-inside space-y-2">
-          <li>Тек қана 7, 8, және 9 сынып оқушылары қатыса алады.</li>
-          <li>Қатысушы Алматы қаласынан болуы тиіс.</li>
-          <li>Олимпиадаға алдын-ала тіркелу міндетті және толық мәлімет толтырылуы керек.</li>
-        </ul>
+        </button>
+      </form>
+      <!-- Overlay Feedback Modal -->
+      <div id="formOverlay" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
+        <div class="bg-white text-[#1F2229] rounded-2xl p-6 flex flex-col items-center shadow-lg w-64">
+          <svg id="loadingSpinner" class="w-10 h-10 text-[#00DF82] animate-spin mb-3" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+          </svg>
+          <svg id="checkmarkIcon" class="w-10 h-10 text-green-600 mb-3 hidden" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+              d="M5 13l4 4L19 7" />
+          </svg>
+          <p id="overlayMessage" class="text-center font-semibold">Submitting...</p>
+        </div>
       </div>
 
-      <div>
-        <h2 class="text-2xl font-bold text-[#00DF82] mb-3">🎁  Сыйлықтар</h2>
-        <p>
-            Жеңімпаздар техникалық гаджеттер, велосипед, самокат, сертификаттар және 2025-2026 оқу жылына Amjilt Cyber School-де оқуға гранттар алады.
-        </p>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Application Form -->
-    <section id="application" class="bg-[#0033FF] py-14 px-6">
-      <div class="max-w-xl mx-auto bg-white text-[#1F2229] rounded-2xl shadow-lg p-8">
-        <h2 class="text-3xl font-bold text-center text-[#00DF82] mb-6">Қатысу формасы</h2>
-        <form id="olympiadForm" class="space-y-5">
-          <div>
-            <label for="fullname" class="block font-medium">Қатысушының толық аты-жөні</label>
-            <input type="text" id="fullname" name="fullname" required class="w-full mt-1 p-2 border border-gray-300 rounded-lg" />
-          </div>
-          <div>
-            <label for="grade" class="block font-medium">Сыныбы</label>
-            <select id="grade" name="grade" required class="w-full mt-1 p-2 border border-gray-300 rounded-lg">
-              <option value="" disabled selected>Сыныпты таңдаңыз</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-            </select>
-          </div>
-          <div>
-            <label for="parentname" class="block font-medium">Ата-ананың аты-жөні</label>
-            <input type="text" id="parentname" name="parentname" required class="w-full mt-1 p-2 border border-gray-300 rounded-lg" />
-          </div>
-          <div>
-            <label for="phone" class="block font-medium">Ата-ананың байланыс нөмірі</label>
-            <input type="tel" id="phone" name="phone" required pattern="[0-9+ ]{10,15}" class="w-full mt-1 p-2 border border-gray-300 rounded-lg" />
-          </div>
-          <button type="submit" class="w-full bg-[#00DF82] text-[#1F2229] font-bold py-2 px-4 rounded-lg hover:bg-green-500 transition">
-            Тіркелу
-          </button>
-        </form>
-      </div>
-    </section>
+  <!-- Footer -->
+  <footer class="bg-[#1F2229] border-t border-gray-700 py-8 px-4 text-center">
+    <h3 class="text-[#00DF82] text-lg font-semibold mb-4">Бізбен байланыс</h3>
+    <div class="flex justify-center gap-8 text-white text-xl">
+      <a href="tel:+77477106060" class="hover:text-[#00DF82]" title="Phone">
+        <i class="ph ph-phone"></i>
+      </a>
+      <a href="https://instagram.com/amjilt.cyber.school" class="hover:text-[#00DF82]" title="Email">
+        <i class="ph ph-instagram-logo"></i>
+      </a>
+      <a href="https://wa.link/f2ephz" class="hover:text-[#00DF82]" title="Location">
+        <i class="ph ph-whatsapp-logo"></i>
+      </a>
+      <a href="http://www.amjiltcyberschool.kz" class="hover:text-[#00DF82]" title="Location">
+        <i class="ph ph-globe"></i>
+      </a>
 
-    <!-- Footer -->
-    <footer class="bg-[#1F2229] border-t border-gray-700 py-8 px-4 text-center">
-      <h3 class="text-[#00DF82] text-lg font-semibold mb-4">Бізбен байланыс</h3>
-      <div class="flex justify-center gap-8 text-white text-xl">
-        <a href="tel:+77477106060" class="hover:text-[#00DF82]" title="Phone">
-          <i class="ph ph-phone"></i>
-        </a>
-        <a href="https://instagram.com/amjilt.cyber.school" class="hover:text-[#00DF82]" title="Email">
-            <i class="ph ph-instagram-logo"></i>
-        </a>
-        <a href="https://wa.link/f2ephz" class="hover:text-[#00DF82]" title="Location">
-            <i class="ph ph-whatsapp-logo"></i>
-        </a>
-        <a  href="http://www.amjiltcyberschool.kz"class="hover:text-[#00DF82]" title="Location">
-            <i class="ph ph-globe"></i>
-        </a>
+    </div>
+    <p class="mt-4 text-sm text-gray-400">© 2025 Amjilt Cyber School. Барлық құқықтар қорғалған.</p>
+  </footer>
 
-      </div>
-      <p class="mt-4 text-sm text-gray-400">© 2025 Amjilt Cyber School. Барлық құқықтар қорғалған.</p>
-    </footer>
+  <script>
+    const overlay = document.getElementById("formOverlay");
+    const message = document.getElementById("overlayMessage");
+    const spinner = document.getElementById("loadingSpinner");
+    const checkmark = document.getElementById("checkmarkIcon");
+    const form = document.getElementById('olympiadForm');
+  
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+  
+      // Reset visual states
+      spinner.classList.remove("hidden");
+      spinner.classList.add("animate-spin");
+      checkmark.classList.add("hidden");
+      message.textContent = "Жіберілуде...";
+      overlay.classList.remove("hidden");
+  
+      const data = new FormData(form);
+      const action = e.target.action;
+  
+      fetch(action, {
+        method: 'POST',
+        body: data,
+      })
+      .then(() => {
+        spinner.classList.add("hidden");
+        spinner.classList.remove("animate-spin");
+        checkmark.classList.remove("hidden");
+        message.textContent = "✅ Өтініш сәтті жіберілді!";
+        form.reset();
+      })
+      .catch(() => {
+        spinner.classList.add("hidden");
+        spinner.classList.remove("animate-spin");
+        message.textContent = "❌ Қате орын алды. Қайтадан көріңіз.";
+      })
+      .finally(() => {
+        setTimeout(() => {
+          overlay.classList.add("hidden");
+        }, 2500);
+      });
+    });
+  </script>
+  
 
-    <script>
-        document.getElementById("olympiadForm").addEventListener("submit", function (e) {
-          e.preventDefault();
-      
-          const data = {
-            fullname: document.getElementById("fullname").value,
-            grade: document.getElementById("grade").value,
-            parentname: document.getElementById("parentname").value,
-            phone: document.getElementById("phone").value,
-          };
-      
-          fetch("https://script.google.com/macros/s/AKfycbxMiO5F9yIVqP2mVeW3zj7CvIXjP9razquQik1vfU88Q7Os3zQC8axPMdpauSOQ3QHfwg/exec", {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: {
-              "Content-Type": "application/json"
-            }
-          })
-          .then(res => res.json())
-          .then(response => {
-            alert("Application submitted successfully!");
-            document.getElementById("olympiadForm").reset();
-          })
-          .catch(error => {
-            alert("There was an error submitting the form.");
-            console.error(error);
-          });
-        });
-      </script>
+</body>
 
-  </body>
 </html>
