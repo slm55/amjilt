@@ -839,7 +839,7 @@ form button {
   cursor: pointer;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 768px) {
   .announcement {
     font-size: 16px;
     text-align: center;
