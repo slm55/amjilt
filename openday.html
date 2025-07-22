@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Amjilt Open Day - Тіркелу</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --accent-color: #00bcd4;
+            --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+            background: #0f2027;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        #tsparticles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .card {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 480px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            color: #fff;
+            text-align: center;
+        }
+
+        .card h1 {
+            color: var(--accent-color);
+            margin-bottom: 1.2rem;
+            font-size: 1.8rem;
+        }
+
+        .card h1 i {
+            display: inline-block;
+            animation: spinY 6s ease-in-out infinite;
+        }
+
+        @keyframes spinY {
+            0% {
+                transform: rotateY(0deg);
+            }
+
+            10% {
+                transform: rotateY(180deg);
+            }
+
+            20% {
+                transform: rotateY(360deg);
+            }
+
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+            color: #e0f7fa;
+        }
+
+        input {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 12px;
+            border: none;
+            font-size: 1.05rem;
+        }
+
+        input:focus {
+            outline: 2px solid var(--accent-color);
+        }
+
+        button {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--accent-color);
+            border: none;
+            color: #000;
+            font-weight: bold;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #03a9f4;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            margin-top: 1rem;
+            font-weight: bold;
+            color: #00e676;
+        }
+
+        .error-message {
+            display: none;
+            text-align: center;
+            margin-top: 1rem;
+            font-weight: bold;
+            color: red;
+        }
+
+        .icon {
+            margin-right: 0.5rem;
+        }
+
+        .tagline {
+            text-align: center;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: #b2ebf2;
+        }
+
+        @media (max-width: 500px) {
+            .card {
+                width: 90vw;
+                padding: 1.5rem;
+            }
+
+            input,
+            button {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tsparticles"></div>
+
+    <div class="card">
+        <h1><i class="fas fa-rocket icon"></i>Amjilt Open Day</h1>
+        <div class="tagline">БОЛАШАҚ ОСЫНДА БАСТАЛАДЫ</div>
+        <form id="registrationForm" method="post" action="https://script.google.com/macros/s/AKfycbwMtDb662z6Kstca_zvZNQX22D7MyjjAxOa6qx6uEpNo0AIRWikUpWQIMm4BRrdG27QLQ/exec">
+            <div class="form-group">
+                <label for="fullname">Аты-жөніңіз</label>
+                <input type="text" id="fullname" name="fullname" required placeholder="Толық аты-жөніңіз" />
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Телефон нөміріңіз</label>
+                <input type="tel" id="phone" name="phone" placeholder="+7 7XX XXX-XX-XX" required />
+            </div>
+
+            <button type="submit">Тіркелу</button>
+        </form>
+        <div class="success-message" id="successMessage">
+            ✅ Ашық есік күніне сәтті тіркелдіңіз!
+        </div>
+        <div class="error-message" id="errorMessage">
+            ❌ Тіркелу кезінде қате орын алды!
+        </div>
+    </div>
+
+    <script>
+        tsParticles.load("tsparticles", {
+            background: {
+                color: "#0f2027"
+            },
+            particles: {
+                number: { value: 60 },
+                size: { value: 3 },
+                color: { value: "#00bcd4" },
+                links: { enable: true, distance: 150, color: "#00bcd4" },
+                move: { enable: true, speed: 0.3 },
+            },
+            interactivity: {
+                events: {
+                    onHover: { enable: true, mode: "repulse" },
+                }
+            },
+            fullScreen: false
+        });
+
+        // Auto-formatting phone input
+        const phoneInput = document.getElementById("phone");
+        phoneInput.addEventListener("input", function (e) {
+            let x = e.target.value.replace(/\D/g, "");
+            if (x.startsWith("8")) x = "7" + x.slice(1);
+            if (!x.startsWith("7")) x = "7" + x;
+            let formatted = "+7 ";
+            if (x.length > 1) formatted += x.slice(1, 4);
+            if (x.length > 4) formatted += "-" + x.slice(4, 7);
+            if (x.length > 7) formatted += "-" + x.slice(7, 9);
+            if (x.length > 9) formatted += "-" + x.slice(9, 11);
+            e.target.value = formatted;
+        });
+
+        const form = document.getElementById("registrationForm");
+
+
+        form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+  
+      const data = new FormData(form);
+      const action = e.target.action;
+  
+      fetch(action, {
+        method: 'POST',
+        body: data,
+      })
+      .then(() => {
+        document.getElementById('successMessage').style.display = 'block';
+            this.reset();
+      })
+      .catch(() => {
+        document.getElementById('errorMessage').style.display = 'block';
+        this.reset();
+      });
+    });
+
+    </script>
+</body>
+
+</html>
