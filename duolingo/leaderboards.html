@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amjilt Leaderboards</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+  <div class="container-web">
+    <h1 class="title">Amjilt Duolingo Leaderboard</h1>
+    <div id="tabs" class="tabs"></div>
+    <div id="leaderboard-content" class="leaderboard-container"></div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const activeClasses = [
+      { name: "Grade 5 & 6", file: "AmjiltGrade56.csv" },
+      { name: "Grade 7 & 8", file: "AmjiltGrade78.csv" },
+      { name: "Grade 9 & 10", file: "AmjiltGrade910.csv" },
+    ];
+    initFullLeaderboard(activeClasses);
+  </script>
+</body>
+</html>

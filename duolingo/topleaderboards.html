@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Top Leaderboards</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+  <div class="container-led">
+    <h1 class="title">Top 10 - Amjilt Duolingo Leaderboard</h1>
+
+    <div class="slide-container" id="slides"></div>
+
+    <!-- 🆕 Status indicator -->
+    <div id="rotation-status" class="rotation-status"></div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const activeClasses = [
+      { name: "Grade 5 & 6", file: "AmjiltGrade56.csv" },
+      { name: "Grade 7 & 8", file: "AmjiltGrade78.csv" },
+      { name: "Grade 9 & 10", file: "AmjiltGrade910.csv" },
+    ];
+    initTopLeaderboard(activeClasses);
+  </script>
+
+  <!-- Auto-refresh every 5 minutes for LED -->
+  <script>
+    setInterval(() => location.reload(), 5 * 60 * 1000);
+  </script>
+</body>
+</html>
