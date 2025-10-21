@@ -87,7 +87,7 @@ async function initTopLeaderboard(classList) {
     const next = classList[(current + 1) % classList.length].name;
     status.classList.add("fade");
     setTimeout(() => {
-      status.textContent = `Now showing: ${now} • Next: ${next}`;
+      status.textContent = `Қазір: ${now} • Келесі: ${next}`;
       status.classList.remove("fade");
     }, 400);
   }
