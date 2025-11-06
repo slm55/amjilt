@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Amjilt — Digital Wallpaper</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="wallpaper" role="main" aria-label="Amjilt Digital Wallpaper">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <!-- simple SVG mark -->
+          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="20" height="20" rx="4" fill="#ffffff20"/>
+            <path d="M6 16L10 10L14 14L18 8" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="school-name">AMJILT CYBER SCHOOL OF ALMATY</div>
+          <div class="tagline">Инновация мен білім қосылған жер</div>
+        </div>
+      </div>
+
+      <div class="weather-block" id="weatherBlock" aria-live="polite">
+        <div class="weather-icon" id="weatherIcon">☀️</div>
+        <div class="weather-value" id="weatherTemp">--°C</div>
+        <div class="weather-location">Almaty</div>
+      </div>
+    </header>
+
+    <section class="center">
+      <div class="clock-card" role="timer" aria-live="polite">
+        <div class="time" id="time">—:—</div>
+        <div class="date" id="date">—</div>
+      </div>
+
+      <div class="message-card" aria-live="polite" id="messageCard">
+        <div class="primary">Welcome to Amjilt Cyber School — where innovation begins.</div>
+        <div class="rotating" id="rotatingMessage">Think creatively. Act boldly. Learn continuously.</div>
+      </div>
+    </section>
+
+    <footer class="bottombar">
+      <div class="left">amjiltcyberschool.kz</div>
+      <div class="divider" aria-hidden="true"></div>
+      <div class="right">@amjilt.cyber.school • +7 747 710 6060</div>
+    </footer>
+
+    <!-- subtle floating shapes -->
+    <div class="float float-1"></div>
+    <div class="float float-2"></div>
+    <div class="float float-3"></div>
+  </main>
+
+  <!-- load main module -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
