@@ -1,105 +1,143 @@
-// === Helper: render leaderboard table ===
-function renderTable(gradeLabel, data, limit = null) {
-  const sorted = data.sort((a, b) => Number(b["Total XP"]) - Number(a["Total XP"]));
-  const visible = limit ? sorted.slice(0, limit) : sorted;
+const CLASSES = [
+  { name: "5 және 6 сыныптар", file: "data/AmjiltGrade56.csv" },
+  { name: "7 және 8 сыныптар", file: "data/AmjiltGrade78.csv" },
+  { name: "9 және 10 сыныптар", file: "data/AmjiltGrade910.csv" }
+];
+const ROTATE_MS = 15000;
 
-  return `
-    <div class="${limit ? 'slide' : 'class-block'}">
-      <h2 class="class-title">Amjilt - ${gradeLabel}</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Rank</th>
-            <th>Student</th>
-            <th>XP</th>
-            <th>Streak 🔥</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${visible.map((r, i) => `
-            <tr>
-              <td>${i + 1}</td>
-              <td>${r["Full name"]}</td>
-              <td>${r["Total XP"] || 0}</td>
-              <td>${r["Streak"] || 0}</td>
-            </tr>
-          `).join("")}
-        </tbody>
-      </table>
-    </div>
-  `;
-}
+const podium = document.getElementById("podium");
+const others = document.getElementById("others");
+const classNameEl = document.getElementById("className");
 
-// === Load a CSV ===
-function loadCSV(file) {
-  return new Promise(resolve => {
-    Papa.parse(`data/${file}`, {
-      download: true,
-      header: true,
-      complete: results => resolve(results.data.filter(r => r["Full name"]))
+const parseCsv = url => new Promise((res, rej)=>{
+  Papa.parse(url,{download:true,header:true,skipEmptyLines:true,complete:r=>res(r.data),error:rej});
+});
+const esc = s => String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+
+(async function(){
+  const datasets=[];
+  for(const c of CLASSES){
+    try{datasets.push({name:c.name,data:await parseCsv(c.file)});}
+    catch(e){datasets.push({name:c.name,data:[]});}
+  }
+  let i=0;
+  showClass(datasets[i]);
+  setInterval(()=>{
+    i=(i+1)%datasets.length;
+    showClass(datasets[i]);
+  },ROTATE_MS);
+})();
+
+function showClass(cls) {
+  classNameEl.textContent = cls.name;
+
+  const rows = cls.data
+    .filter(r => r["Full name"] || r["Full Name"])
+    .map(r => ({
+      name: r["Full name"] || r["Full Name"],
+      xp: parseInt(r["Total XP"] || r["XP"] || 0, 10) || 0
+    }))
+    .sort((a, b) => b.xp - a.xp);
+
+  if (rows.length === 0) return;
+
+  const maxXp = Math.max(...rows.map(r => r.xp), 1);
+  let top3 = rows.slice(0, 3);
+  const newTop3 = [top3[1], top3[0], top3[2]];
+  top3 = newTop3;
+  console.log(top3)
+  const top10 = rows.slice(3, 10);
+
+  podium.innerHTML = "";
+  others.innerHTML = "";
+
+  const medalEmojis = ["🥈","🥇", "🥉"];
+  const positions = [
+     { rank: 1, cls: "silver" },
+    { rank: 2, cls: "gold" },
+    { rank: 3, cls: "bronze" }
+  ];
+
+  // Correct medal placement
+  positions.forEach((pos) => {
+    const r = top3.find((_r, i) => i + 1 === pos.rank);
+    if (!r) return;
+
+    const div = document.createElement("div");
+    div.className = `pillar ${pos.cls}`;
+    div.innerHTML = `
+      <div class="medal">${medalEmojis[pos.rank - 1]}</div>
+      <h3>${esc(r.name)}</h3>
+      <div class="xp">${r.xp.toLocaleString()} XP</div>
+      <div class="xpbar"><div class="xpfill"></div></div>
+    `;
+    podium.appendChild(div);
+  });
+
+  top10.forEach((r, idx) => {
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `
+      <h4>${idx + 4}. ${esc(r.name)}</h4>
+      <div class="xp">${r.xp.toLocaleString()} XP</div>
+      <div class="xpbar"><div class="xpfill"></div></div>
+    `;
+    others.appendChild(div);
+  });
+
+  // Animate podium
+  gsap.fromTo(
+    ".pillar",
+    { opacity: 0, y: 50 },
+    { opacity: 1, y: 0, duration: 0.7, stagger: 0.2, ease: "back.out(1.7)" }
+  );
+
+  setTimeout(
+    () =>
+      confetti({
+        particleCount: 60,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ["#58cc02", "#bff78a", "#fff"],
+      }),
+    700
+  );
+
+  // Animate XP bars accurately
+  const allBars = [];
+  podium.querySelectorAll(".pillar").forEach((pillar, idx) => {
+    const xpValue = top3[idx] ? top3[idx].xp : 0;
+    const pct = Math.min(Math.round((xpValue / maxXp) * 100), 100);
+    const bar = pillar.querySelector(".xpfill");
+    allBars.push({ bar, pct });
+  });
+
+  others.querySelectorAll(".card").forEach((card, idx) => {
+    const xpValue = top10[idx] ? top10[idx].xp : 0;
+    const pct = Math.min(Math.round((xpValue / maxXp) * 100), 100);
+    const bar = card.querySelector(".xpfill");
+    allBars.push({ bar, pct });
+  });
+
+  gsap.set(allBars.map(b => b.bar), { width: "0%" });
+  allBars.forEach((b, idx) => {
+    gsap.to(b.bar, {
+      width: b.pct + "%",
+      duration: 1.2,
+      ease: "power2.out",
+      delay: 1 + idx * 0.1,
     });
   });
-}
 
-// === FULL LEADERBOARD PAGE ===
-async function initFullLeaderboard(classList) {
-  const tabs = document.getElementById("tabs");
-  const content = document.getElementById("leaderboard-content");
-
-  // Create tabs
-  classList.forEach((cls, i) => {
-    const btn = document.createElement("button");
-    btn.className = "tab" + (i === 0 ? " active" : "");
-    btn.textContent = cls.name;
-    btn.onclick = async () => {
-      document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
-      btn.classList.add("active");
-      const data = await loadCSV(cls.file);
-      content.innerHTML = renderTable(cls.name, data);
-    };
-    tabs.appendChild(btn);
+  // Fade-in for other cards
+  const cards = document.querySelectorAll(".card");
+  gsap.fromTo(cards, { opacity: 0, y: 30 }, {
+    opacity: 1,
+    y: 0,
+    duration: 0.5,
+    stagger: 0.15,
+    delay: 1.3
   });
-
-  // Load first class by default
-  const first = classList[0];
-  const data = await loadCSV(first.file);
-  content.innerHTML = renderTable(first.name, data);
 }
 
-// === TOP LEADERBOARD PAGE ===
-// === TOP LEADERBOARD PAGE (LED Display) ===
-async function initTopLeaderboard(classList) {
-  const slides = document.getElementById("slides");
-  const status = document.getElementById("rotation-status");
-
-  for (const cls of classList) {
-    const data = await loadCSV(cls.file);
-    slides.innerHTML += renderTable(cls.name, data, 10);
-  }
-
-  const slideEls = slides.querySelectorAll(".slide");
-  let current = 0;
-  slideEls[current].classList.add("active");
-
-  // Helper to update bottom status bar
-  function updateStatus() {
-    const now = classList[current].name;
-    const next = classList[(current + 1) % classList.length].name;
-    status.classList.add("fade");
-    setTimeout(() => {
-      status.textContent = `Қазір: ${now} • Келесі: ${next}`;
-      status.classList.remove("fade");
-    }, 400);
-  }
-
-  updateStatus();
-
-  // Switch slides every 8 seconds
-  setInterval(() => {
-    slideEls[current].classList.remove("active");
-    current = (current + 1) % slideEls.length;
-    slideEls[current].classList.add("active");
-    updateStatus();
-  }, 8000);
-}
 

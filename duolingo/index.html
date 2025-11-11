@@ -1,11 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amjilt Leaderboards</title>
+  <style>
+    * { box-sizing: border-box; margin:0; padding:0; font-family: 'Poppins', Arial, sans-serif;}
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #b4ec51, #429321);
+      color: #fff;
+      text-align: center;
+    }
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 2rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+    .btn {
+      display: inline-block;
+      background: #58cc02;
+      color: #fff;
+      font-weight: 700;
+      font-size: clamp(1rem,2.5vw,1.3rem);
+      padding: 1rem 2rem;
+      border-radius: 999px;
+      margin: 1rem;
+      text-decoration: none;
+      transition: transform 0.2s, background 0.3s;
+    }
+    .btn:hover {
+      background: #3fa000;
+      transform: scale(1.05);
+    }
+    @media(max-width: 500px){
+      .btn { padding: 0.8rem 1.5rem; font-size: 1rem; }
+    }
+  </style>
 </head>
 <body>
-    Duolingo Leaderboards by Grades at Amjilt Cyber School
+  <h1>Amjilt Leaderboards</h1>
+
+  <a href="https://amjiltcyberschool.kz/duolingo/full" class="btn" target="_blank">
+    Толық рейтинг
+  </a>
+
+  <a href="./topleaderboards.html" class="btn">
+    Топ 10 рейтинг
+  </a>
 </body>
 </html>

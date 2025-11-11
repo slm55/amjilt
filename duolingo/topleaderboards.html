@@ -1,37 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="kk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Top Leaderboards</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Amjilt Leaderboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
-  <div class="container-led">
-    <h1 class="title">Top 10 - Amjilt Duolingo Leaderboard</h1>
+  <header class="header">
+    <h1>Amjilt Leaderboard</h1>
+    <p class="subtitle">
+      Duolingo қосымшасында осы аптада жинаған ұпайлар бойынша оқушылардың рейтингі
+    </p>
+    <div id="className" class="class-name">–</div>
+  </header>
 
-    <h2>Осы аптада жиналған XP-лар нәтижесінде</h2>
+  <main class="main">
+    <section id="podium" class="podium"></section>
+    <section id="others" class="others"></section>
+  </main>
 
-    <div class="slide-container" id="slides"></div>
-
-    <!-- 🆕 Status indicator -->
-    <div id="rotation-status" class="rotation-status"></div>
-  </div>
+  <footer class="footer">
+    Толық рейтингті көру үшін <b>amjiltcyberschool.kz/duolingo/full</b> сілтемесіне өтіңіз.
+  </footer>
 
   <script src="script.js"></script>
-  <script>
-    const activeClasses = [
-      { name: "Grade 5 & 6", file: "AmjiltGrade56.csv" },
-      { name: "Grade 7 & 8", file: "AmjiltGrade78.csv" },
-      { name: "Grade 9 & 10", file: "AmjiltGrade910.csv" },
-    ];
-    initTopLeaderboard(activeClasses);
-  </script>
-
-  <!-- Auto-refresh every 5 minutes for LED -->
-  <script>
-    setInterval(() => location.reload(), 5 * 60 * 1000);
-  </script>
 </body>
 </html>
